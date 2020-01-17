@@ -1,4 +1,4 @@
-// require('dotenv').config();
+require("dotenv").config();
 import "reflect-metadata";
 import { createConnection, getConnection } from "typeorm";
 import { ApolloServer } from "apollo-server";
@@ -42,7 +42,10 @@ const server = new ApolloServer({
   typeDefs,
   dataSources,
   context,
-  resolvers
+  resolvers,
+  engine: {
+    apiKey: process.env.ENGINE_API_KEY
+  }
   //mocks: true
 });
 
