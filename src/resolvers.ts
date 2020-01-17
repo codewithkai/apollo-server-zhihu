@@ -21,6 +21,22 @@ export const resolvers = {
         "secret"
       );
       return token;
+    },
+    async followPeople(
+      parent: null,
+      args: { peopleId: string },
+      context: Context
+    ) {
+      await context.dataSources.userAPI.followPeople(args.peopleId);
+      return context.dataSources.zhihuAPI.getPeopleById(args.peopleId);
+    },
+    async unFollowPeople(
+      parent: null,
+      args: { peopleId: string },
+      context: Context
+    ) {
+      await context.dataSources.userAPI.unFollowPeople(args.peopleId);
+      return context.dataSources.zhihuAPI.getPeopleById(args.peopleId);
     }
   },
   Query: {
@@ -74,6 +90,9 @@ export const resolvers = {
         EXTRA_LARGE: "xl"
       };
       return parent.avatarUrlTemplate.replace(`{size}`, sizeMap[args.size]);
+    },
+    isFollowing(parent: People, args: {}, context: Context) {
+      return context.dataSources.userAPI.isFollowing(parent.id);
     }
   },
   Question: {

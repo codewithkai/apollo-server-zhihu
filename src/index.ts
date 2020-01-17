@@ -7,13 +7,14 @@ import { resolvers } from "./resolvers";
 import { UserAPI } from "./datasources/user";
 import { ZhihuAPI } from "./datasources/zhihu";
 import { User } from "./entity/User";
+import { Follow } from "./entity/Follow";
 import { Context } from "./types";
 import * as jwt from "jsonwebtoken";
 
 createConnection({
   type: "sqlite",
   database: "db",
-  entities: [User],
+  entities: [User, Follow],
   synchronize: true,
   logging: false
 });

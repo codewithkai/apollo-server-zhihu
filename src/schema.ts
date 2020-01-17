@@ -15,7 +15,8 @@ export const typeDefs = gql`
 
   type Mutation {
     login(email: String!, password: String!): String!
-    followPeople(peopleId: ID!): User!
+    followPeople(peopleId: ID!): People!
+    unFollowPeople(peopleId: ID!): People!
   }
 
   type User {
@@ -35,6 +36,7 @@ export const typeDefs = gql`
     followerCount: Int!
     answerCount: Int!
     articlesCount: Int!
+    isFollowing: Boolean!
   }
 
   enum Gender {

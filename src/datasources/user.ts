@@ -18,7 +18,7 @@ export class UserAPI extends DataSource {
     this.context = config.context;
   }
 
-  async findOrCreateUser(email: string, password: string) {
+  async findOrCreateUser(email: string, password: string): Promise<User> {
     let userRepository = this.context.connection.getRepository(User);
     let user = await userRepository.findOne({ email });
     if (user) {
@@ -37,7 +37,7 @@ export class UserAPI extends DataSource {
     return user;
   }
 
-  async followUser(peopleId: string) {
+  async followPeople(peopleId: string) {
     const currentUser = this.context.user;
     if (!currentUser) {
       throw new ApolloError("login required");
@@ -54,6 +54,36 @@ export class UserAPI extends DataSource {
       });
       await followRepository.save(follow);
     }
-    return currentUser;
+  }
+
+  async unFollowPeople(peopleId: string) {
+    const currentUser = this.context.user;
+    if (!currentUser) {
+      throw new ApolloError("login required");
+    }
+    let followRepository = this.context.connection.getRepository(Follow);
+    let follow = await followRepository.findOne({
+      userId: currentUser.id,
+      zhihuPeopleId: peopleId
+    });
+    if (follow) {
+      await followRepository.delete(follow.id);
+    }
+  }
+
+  async isFollowing(peopleId: string): Promise<boolean> {
+    const currentUser = this.context.user;
+    if (!currentUser) {
+      return false;
+    }
+    let followRepository = this.context.connection.getRepository(Follow);
+    let follow = await followRepository.findOne({
+      userId: currentUser.id,
+      zhihuPeopleId: peopleId
+    });
+    if (!follow) {
+      return false;
+    }
+    return true;
   }
 }
