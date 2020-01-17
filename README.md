@@ -75,3 +75,36 @@ https://w4u0q.sse.codesandbox.io/
   }
 }
 ```
+
+登录，返回 Token
+
+```graphql
+mutation {
+  login(email: "test@example", password: "test")
+}
+```
+
+把 Token 放到 Playground 的左下角的`HTTP HEADERS`里面即为登录
+![示例图](https://img.codewithkai.com/e74bf13c-3942-11ea-9811-9b0e029991d5!jpg)
+
+关注一个知乎用户
+
+```graphql
+mutation {
+  followPeople(peopleId: "c7e4de899635e9ce839d90d64f0b9602") {
+    name
+    isFollowing
+  }
+}
+```
+
+取消关注一个知乎用户
+
+```graphql
+mutation {
+  unFollowPeople(peopleId: "c7e4de899635e9ce839d90d64f0b9602") {
+    name
+    isFollowing
+  }
+}
+```
