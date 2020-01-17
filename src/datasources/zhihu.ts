@@ -35,7 +35,7 @@ export class ZhihuAPI extends RESTDataSource {
   questionReducer(question: any): Question {
     return {
       id: question.id,
-      createdAt: new Date(question.created),
+      createdAt: new Date(question.created * 1000),
       title: question.title
     };
   }
@@ -44,7 +44,7 @@ export class ZhihuAPI extends RESTDataSource {
     return {
       id: answer.id,
       createdAt: new Date(
-        answer.created ? answer.created : answer.created_time
+        (answer.created ? answer.created : answer.created_time) * 1000
       ),
       questionId: answer.question.id,
       authorId: answer.author.id,
@@ -58,7 +58,7 @@ export class ZhihuAPI extends RESTDataSource {
   articleReducer(article: any): Article {
     return {
       id: article.id,
-      createdAt: new Date(article.created),
+      createdAt: new Date(article.created * 1000),
       title: article.title,
       authorId: article.author.id,
       excerpt: article.excerpt,
