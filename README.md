@@ -36,7 +36,7 @@ https://w4u0q.sse.codesandbox.io/
 
 ```graphql
 {
-  people(id: "c7e4de899635e9ce839d90d64f0b9602") {
+  people(id: "ye-jia-shi-jian") {
     name
     avatarUrl(size: LARGE)
     headline
@@ -91,7 +91,7 @@ mutation {
 
 ```graphql
 mutation {
-  followPeople(peopleId: "c7e4de899635e9ce839d90d64f0b9602") {
+  followPeople(peopleId: "ye-jia-shi-jian") {
     name
     isFollowing
   }
@@ -102,7 +102,7 @@ mutation {
 
 ```graphql
 mutation {
-  unFollowPeople(peopleId: "c7e4de899635e9ce839d90d64f0b9602") {
+  unFollowPeople(peopleId: "ye-jia-shi-jian") {
     name
     isFollowing
   }

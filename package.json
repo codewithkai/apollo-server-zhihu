@@ -1,22 +1,22 @@
 {
   "dependencies": {
-    "apollo-datasource": "^0.6.4",
-    "apollo-datasource-rest": "^0.6.11",
-    "apollo-server": "^2.9.16",
-    "apollo-server-testing": "^2.9.16",
-    "bcrypt": "^3.0.7",
+    "apollo-datasource": "^0.7.0",
+    "apollo-datasource-rest": "^0.8.0",
+    "apollo-server": "^2.11.0",
+    "apollo-server-testing": "^2.11.0",
+    "bcrypt": "^4.0.1",
     "dotenv": "^8.2.0",
-    "graphql": "^14.5.8",
+    "graphql": "^14.6.0",
     "jsonwebtoken": "^8.5.1",
     "nodemon": "^2.0.2",
     "reflect-metadata": "^0.1.10",
     "sqlite3": "^4.1.1",
-    "typeorm": "0.2.22"
+    "typeorm": "0.2.24"
   },
   "devDependencies": {
-    "@types/node": "^8.0.29",
-    "ts-node": "3.3.0",
-    "typescript": "3.3.3333"
+    "@types/node": "^13.9.2",
+    "ts-node": "8.7.0",
+    "typescript": "3.8.3"
   },
   "scripts": {
     "start": "ts-node src/index.ts"
