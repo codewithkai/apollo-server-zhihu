@@ -2,7 +2,7 @@
   "dependencies": {
     "apollo-datasource": "^0.7.0",
     "apollo-datasource-rest": "^0.8.0",
-    "apollo-server": "^2.11.0",
+    "apollo-server": "^2.14.2",
     "apollo-server-testing": "^2.11.0",
     "bcrypt": "^4.0.1",
     "dotenv": "^8.2.0",
